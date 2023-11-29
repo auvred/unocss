@@ -27,7 +27,7 @@ const unmatchedClasses = asyncComputed(async () => {
   }
   return Array.from(set)
     .filter(i => !i.startsWith('['))
-    .filter(i => !mod.value?.matched.includes(i))
+    .filter(i => !mod.value?.matched.some(({ name }) => name === i))
 })
 
 const isPrettify = ref(false)
